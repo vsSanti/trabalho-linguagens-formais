@@ -4,17 +4,20 @@ const { getECLOSURE } = require('./src/utils/e-closure');
 const { removeVoidTransition } = require('./src/utils/remove-void-transition');
 
 const { table } = entry;
-// const newTable = JSON.parse(JSON.stringify(table));
+let newTable = JSON.parse(JSON.stringify(table));
 const states = Object.keys(table);
 
-console.log(`O AF é um: ${getAFType(table, states)}`);
+const afType = getAFType(table, states);
+console.log(`O AF é um: ${afType}`);
 console.table(table);
 
-// criação da lista de eCLOSURE
-const eCLOSURE = getECLOSURE(table, states);
+if (afType === 'AFNDe') {
+  // criação da lista de eCLOSURE
+  const eCLOSURE = getECLOSURE(table, states);
+  
+  // remoção das transições vazias
+  newTable = removeVoidTransition(table, states, eCLOSURE);
+  console.log('\nTabela sem os movimentos vazios:');
+  console.table(newTable)
+}
 
-// remoção das transições vazias
-const newTable = removeVoidTransition(table, states, eCLOSURE);
-
-console.log('\nTabela sem os movimentos vazios:');
-console.table(newTable)
