@@ -1,0 +1,6 @@
+- [x] Criar um objeto que tenha uma forma padrão de entrada;
+- [ ] Descobrir o tipo do AF;
+- [ ] Possibilitar remover as transições vazias (gerar um AFND equivalente sem os movimentos vazios;
+- [ ] Possibilitar determinizar (gerar um AFD equivalente);
+- [ ] Minimizar o AFD;
+- [ ] Permitir informar uma sentença qualquer e simular seu reconhecimento ou não reconhecimento no AFD;
