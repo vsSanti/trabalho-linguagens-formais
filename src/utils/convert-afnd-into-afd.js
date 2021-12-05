@@ -4,7 +4,7 @@ const convertAFNDintoAFD = (table, initialState) => {
   // é uma lista do tipo FIFO
   const queue = [[initialState]];
   // chaves desse estado
-  const transitionKeys = Object.keys(initialState);
+  const transitionKeys = Object.keys(table[initialState]);
 
   // enquanto tiver chave, fazer a procura na tabela
   while (queue.length) {
@@ -20,7 +20,7 @@ const convertAFNDintoAFD = (table, initialState) => {
         const newTransition = [...new Set([...stateAcc, ...table[s][key]].sort())];
 
         // caso seja um estado que ainda não foi posto na lista, adiciona ele no final
-        if (!afd[newTransition]) {
+        if (!afd[newTransition] && newTransition.length) {
           afd[newTransition] = {};
           queue.push(newTransition);
         }
