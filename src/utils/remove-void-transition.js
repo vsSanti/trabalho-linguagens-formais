@@ -47,7 +47,6 @@ const getFinalStatesAfterRemovalOfVoidTransitions = (af, states, finalStates) =>
   });
 
   return [...(new Set([...newFinalStates, ...finalStates]))];
-
 }
 
 module.exports = {

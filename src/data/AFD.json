@@ -1,0 +1,28 @@
+{
+  "finalStates": ["q2"],
+  "initialState": "q0",
+  "table": {
+    "q0": {
+      "a": ["q1"],
+      "b": []
+    },
+    "q1": {
+      "a": ["q1"],
+      "b": ["q2"]
+    },
+    "q2": {
+      "a": [],
+      "b": []
+    }
+  },
+  "sentences": [
+    "aaaaab",
+    "baaa",
+    "aaaaa",
+    "ab",
+    "aaaavb",
+    "b",
+    "a",
+    ""
+  ]
+}

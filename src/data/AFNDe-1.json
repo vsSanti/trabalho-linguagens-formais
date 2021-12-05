@@ -11,5 +11,15 @@
       "a": [],
       "b": ["q1"]
     }
-  }
+  },
+  "sentences": [
+    "aaaabbb",
+    "aaaa",
+    "bbbbb",
+    "bbaa",
+    "aavb",
+    "a",
+    "b",
+    ""
+  ]
 }

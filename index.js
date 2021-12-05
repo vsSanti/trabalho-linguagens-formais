@@ -8,11 +8,13 @@ const {
   getFinalStatesAfterRemovalOfVoidTransitions,
   removeVoidTransition
 } = require('./src/utils/remove-void-transition');
+const { validateSentence } = require('./src/utils/validate-sentence');
 
 const {
   initialState,
   finalStates: originalFinalStates,
-  table: originalTable
+  table: originalTable,
+  sentences,
 } = entry;
 let finalStates = [...originalFinalStates];
 let af = JSON.parse(JSON.stringify(originalTable));
@@ -55,3 +57,6 @@ if (afType === 'AFND') {
   af = getFinalStates(af, finalStates, initialState);
   console.table(af);
 }
+
+// nesse ponto, o AF será sempre um AFD
+sentences.forEach((sentence) => validateSentence(af, initialState, sentence));

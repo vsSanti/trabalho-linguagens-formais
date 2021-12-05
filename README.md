@@ -5,4 +5,4 @@
 - [x] Identificar os estados finais;
 - [x] Identificar o estado inicial;
 - [ ] Minimizar o AFD;
-- [ ] Permitir informar uma sentença qualquer e simular seu reconhecimento ou não reconhecimento no AFD;
+- [x] Permitir informar uma sentença qualquer e simular seu reconhecimento ou não reconhecimento no AFD;
