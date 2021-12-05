@@ -1,5 +1,5 @@
 {
-  "final": ["q2", "q4"],
+  "finalStates": ["q2", "q4"],
   "table": {
     "q0": {
       "0": ["q0", "q3"],

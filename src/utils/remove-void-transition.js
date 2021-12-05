@@ -35,4 +35,23 @@ const removeVoidTransition = (table, states, eCLOSURE) => {
   return newTable;
 }
 
-module.exports = { getECLOSURE, removeVoidTransition };
+const getFinalStatesAfterRemovalOfVoidTransitions = (af, states, finalStates) => {
+  const newFinalStates = [];
+  states.forEach((state) => {
+    Object.keys(af[state]).forEach((key) => {
+      const hasFinalState = af[state][key].some((s) => ['q1'].includes(s));
+      if (hasFinalState) {
+        newFinalStates.push(state);
+      }
+    });
+  });
+
+  return [...(new Set([...newFinalStates, ...finalStates]))];
+
+}
+
+module.exports = {
+  getECLOSURE,
+  getFinalStatesAfterRemovalOfVoidTransitions,
+  removeVoidTransition,
+};

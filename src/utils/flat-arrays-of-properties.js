@@ -1,5 +1,5 @@
-const flatArraysOfProperties = (table, initialState, afd) => {
-  const transitionKeys = Object.keys(table[initialState]);
+const flatArraysOfProperties = (afd, initialState) => {
+  const transitionKeys = Object.keys(afd[initialState]);
 
   const response = {};
   Object.keys(afd).forEach((keys) => {
