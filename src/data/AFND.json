@@ -1,5 +1,6 @@
 {
   "finalStates": ["q2", "q4"],
+  "initialState": "q0",
   "table": {
     "q0": {
       "0": ["q0", "q3"],

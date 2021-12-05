@@ -9,7 +9,11 @@ const {
   removeVoidTransition
 } = require('./src/utils/remove-void-transition');
 
-const { finalStates: originalFinalStates, table: originalTable } = entry;
+const {
+  initialState,
+  finalStates: originalFinalStates,
+  table: originalTable
+} = entry;
 let finalStates = [...originalFinalStates];
 let af = JSON.parse(JSON.stringify(originalTable));
 const states = Object.keys(originalTable);
@@ -20,7 +24,7 @@ console.log(`\nO AF é um: ${afType}`);
 
 if (afType === 'AFD') {
   af = flatArraysOfProperties(af, states[0]);
-  af = getFinalStates(af, finalStates);
+  af = getFinalStates(af, finalStates, initialState);
 }
 
 console.table(af);
@@ -48,6 +52,6 @@ if (afType === 'AFND') {
 
   console.log('\nApós conversão de AFND para AFD:')
 
-  af = getFinalStates(af, finalStates);
+  af = getFinalStates(af, finalStates, initialState);
   console.table(af);
 }

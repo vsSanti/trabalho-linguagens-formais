@@ -3,6 +3,6 @@
 - [x] Possibilitar remover as transições vazias (gerar um AFND equivalente sem os movimentos vazios);
 - [x] Possibilitar determinizar (gerar um AFD equivalente);
 - [x] Identificar os estados finais;
-- [ ] Identificar o estado inicial;
+- [x] Identificar o estado inicial;
 - [ ] Minimizar o AFD;
 - [ ] Permitir informar uma sentença qualquer e simular seu reconhecimento ou não reconhecimento no AFD;
