@@ -1,3 +1,13 @@
+const getECLOSURE = (table, states) => {
+  const eCLOSURE = {};
+  states.forEach((state) => {
+    eCLOSURE[state] = [...(new Set([state, ...(table[state].void || [])]))];
+    console.log(`ε-CLOSURE(${state}) = { ${eCLOSURE[state].join(', ')} }`);
+  });
+
+  return eCLOSURE;
+}
+
 const removeVoidTransition = (table, states, eCLOSURE) => {
   const newTable = JSON.parse(JSON.stringify(table));
   states.forEach((state) => {
@@ -25,4 +35,4 @@ const removeVoidTransition = (table, states, eCLOSURE) => {
   return newTable;
 }
 
-module.exports = { removeVoidTransition };
+module.exports = { getECLOSURE, removeVoidTransition };

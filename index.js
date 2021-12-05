@@ -1,8 +1,7 @@
-const entry = require('./src/data/AFND.json');
+const entry = require('./src/data/AFNDe-1.json');
 const { getAFType } = require('./src/utils/af-type');
 const { convertAFNDintoAFD } = require('./src/utils/convert-afnd-into-afd');
-const { getECLOSURE } = require('./src/utils/e-closure');
-const { removeVoidTransition } = require('./src/utils/remove-void-transition');
+const { getECLOSURE, removeVoidTransition } = require('./src/utils/remove-void-transition');
 
 const { table: originalTable } = entry;
 let af = JSON.parse(JSON.stringify(originalTable));
