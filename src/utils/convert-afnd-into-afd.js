@@ -35,17 +35,7 @@ const convertAFNDintoAFD = (table, initialState) => {
     afd[state] = newVal;
   }
 
-  // Transformando os arrays nas chaves e transições em uma string
-  const response = {};
-  Object.keys(afd).forEach((keys) => {
-    const key = String(keys).replace(/,/g, '');
-    response[key] = {};
-    transitionKeys.forEach((tk) => {
-      response[key][tk] = afd[keys][tk].join('')
-    });
-  });
-
-  return response;
+  return afd;
 }
 
 module.exports = { convertAFNDintoAFD };

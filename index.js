@@ -1,6 +1,7 @@
 const entry = require('./src/data/AFNDe-1.json');
 const { getAFType } = require('./src/utils/af-type');
 const { convertAFNDintoAFD } = require('./src/utils/convert-afnd-into-afd');
+const { flatArraysOfProperties } = require('./src/utils/flat-arrays-of-properties');
 const { getECLOSURE, removeVoidTransition } = require('./src/utils/remove-void-transition');
 
 const { table: originalTable } = entry;
@@ -10,7 +11,12 @@ const states = Object.keys(originalTable);
 // faz a verificação inicial do tipo do AF
 let afType = getAFType(originalTable, states);
 console.log(`O AF é um: ${afType}`);
-console.table(originalTable);
+
+if (afType === 'AFD') {
+  af = flatArraysOfProperties(af, states[0], af);
+}
+
+console.table(af);
 
 if (afType === 'AFNDe') {
   // criação da lista de eCLOSURE
@@ -28,7 +34,7 @@ if (afType === 'AFNDe') {
 
 if (afType === 'AFND') {
   // faz a equivalência de AFND para AFD
-  af = convertAFNDintoAFD(af, states[0]);
-  console.log('\nTabela de equivalência entre o AFND e AFD:');
+  const afd = convertAFNDintoAFD(af, states[0]);
+  af = flatArraysOfProperties(af, states[0], afd);
   console.table(af);
 }
