@@ -18,14 +18,14 @@ const convertAFNDintoAFD = (table, initialState) => {
         // faz a junção entre o estado da redução e o que contém na tabela original para
         // o estado e chave
         const newTransition = [...new Set([...stateAcc, ...table[s][key]].sort())];
-
-        // caso seja um estado que ainda não foi posto na lista, adiciona ele no final
-        if (!afd[newTransition] && newTransition.length) {
-          afd[newTransition] = {};
-          queue.push(newTransition);
-        }
         return newTransition;
       }, []);
+
+      // caso seja um estado que ainda não foi posto na lista, adiciona ele no final
+      if (!afd[resp] && resp.length) {
+        afd[resp] = {};
+        queue.push(resp);
+      }
 
       keyAcc[key] = resp;
 
