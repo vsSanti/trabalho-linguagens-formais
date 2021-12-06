@@ -1,4 +1,4 @@
-const entry = require('./src/data/AFND.json');
+const entry = require('./src/data/AFD.json');
 const { getAFType } = require('./src/utils/af-type');
 const { convertAFNDintoAFD } = require('./src/utils/convert-afnd-into-afd');
 const { flatArraysOfProperties } = require('./src/utils/flat-arrays-of-properties');
